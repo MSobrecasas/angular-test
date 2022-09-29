@@ -1,0 +1,9 @@
+.card{
+    margin: 1rem 0;
+    height: 31rem;
+}
+
+.card-body .episodes{
+    height: 5rem;
+    overflow: scroll;
+}

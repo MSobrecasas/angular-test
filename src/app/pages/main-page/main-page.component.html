@@ -1,0 +1,18 @@
+<section class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h1 class="text-center">Rick & Morty Wiki</h1>
+        </div>
+        <div class="col-md">
+            <input type="text" placeholder="name.." (input)="filter($event)" class="form-control">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md cards" *ngFor="let personaje of personajes">
+            <app-card [personaje]="personaje"></app-card>
+        </div>
+    </div>
+</section>

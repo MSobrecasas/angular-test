@@ -15,6 +15,8 @@ export class MainPageComponent implements OnInit {
     public http: HttpClient
   ) {
     this.getData();
+    this.saveLocalStorage();
+    this.getLocalStorage();
   }
 
   ngOnInit(): void {
@@ -38,11 +40,36 @@ export class MainPageComponent implements OnInit {
 
   }
 
-  filter(e: any) {
+  filter = (e: any) => {
     const search: string = e.target.value;
     console.log(e.target.value);
     this.personajes = this.personajesCopy?.filter(({ name }: Personaje) => {
       return name.toLowerCase().includes(search.toLowerCase());
     });
   }
+
+  saveLocalStorage = () => {
+
+    let nombre: string = "Tony"
+    let persona = {
+      nombre: "Cris",
+      edad: 33,
+      mascotas: [
+        "gato",
+        "perro"
+      ]
+    }
+
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("persona", JSON.stringify(persona));
+  }
+  getLocalStorage = () => {
+
+    let nombre = localStorage.getItem("nombre");
+    let persona = JSON.parse(localStorage.getItem("persona")!);
+
+    console.log(nombre);;
+    console.log(persona);
+  }
+
 }
